@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/config/router/app_router.dart';
 import 'package:flutter_application_1/config/theme/app_theme.dart';
-import 'package:flutter_application_1/presentation/screen/domus/domus_screen.dart';
 
 void main() {
   runApp(const MainApp());
