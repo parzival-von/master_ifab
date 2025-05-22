@@ -1,31 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/presentation/providers/numerator_provider.dart';
+import 'package:flutter_application_1/presentation/providers/theme_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class NumeratorScreen extends StatefulWidget {
+// Provider de estado para el contador
+final counterProvider = StateProvider<int>((ref) => 0);
+
+class NumeratorScreen extends ConsumerWidget {
   const NumeratorScreen({super.key});
 
   @override
-  State<NumeratorScreen> createState() => _NumeratorScreenState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
 
-class _NumeratorScreenState extends State<NumeratorScreen> {
-  int counter = 0;
+    final int clickNumerator = ref.watch(numeratorProvider);
 
-  @override
-  Widget build(BuildContext context) {
+    final bool estTenebrisModus = ref.watch(estTenebrisModusProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Numerator'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              ref.read(estTenebrisModusProvider.notifier).update((state) => !state);
+            },
+            icon: Icon(estTenebrisModus ? Icons.dark_mode_outlined : Icons.light_mode_outlined),)
+        ],
       ),
       body: Center(
-        child: Text(
-          'Valor: $counter',
+        child: 
+        Text('Valor: $clickNumerator',
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          counter++;
-          setState(() { });
+          // ref.read(numeratorProvider.notifier).state++;
+          ref.read(numeratorProvider.notifier).update((state)=>state + 1);
         },
         child: const Icon(Icons.add),
       ),

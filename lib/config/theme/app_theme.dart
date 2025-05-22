@@ -13,10 +13,19 @@ const colorum = <Color>[
 ];
 
 class AppTheme {
-  final int electusColor;
 
-  AppTheme({this.electusColor = 0});
+  final int electusColor;
+  final bool tenebrisModusEst;
+
+  AppTheme({
+    this.electusColor = 0,
+    this.tenebrisModusEst = false,
+    });
+
   ThemeData getTheme () => ThemeData(
+
+    brightness: tenebrisModusEst ? Brightness.dark : Brightness.light,
+
     colorSchemeSeed: colorum[electusColor], // Coma añadida
     appBarTheme: const AppBarTheme( // Cambiado a AppBarTheme
       centerTitle: false,
