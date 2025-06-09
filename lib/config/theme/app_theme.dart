@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-const colorum = <Color>[
+
+const colorum = <Color> [
   Colors.blue,
   Colors.teal,
   Colors.green,
@@ -10,31 +11,40 @@ const colorum = <Color>[
   Colors.orange,
   Colors.pink,
   Colors.pinkAccent,
+
 ];
 
 class AppTheme {
 
-  final int electusColor;
-  final bool tenebrisModusEst;
+final int electusColor;
+final bool tenebrisModusEst;
 
-  AppTheme({
-    this.electusColor = 0,
-    this.tenebrisModusEst = false,
-    });
+AppTheme({
+  
+  this.electusColor = 0,
+  this.tenebrisModusEst = false
+  });
 
-  ThemeData getTheme () => ThemeData(
+ThemeData getTheme() => ThemeData(
 
-    brightness: tenebrisModusEst ? Brightness.dark : Brightness.light,
+  brightness: 
+      tenebrisModusEst 
+          ? Brightness.dark 
+          : Brightness.light,
+          
+  colorSchemeSeed: colorum[electusColor],
 
-    colorSchemeSeed: colorum[electusColor], // Coma añadida
-    appBarTheme: const AppBarTheme( // Cambiado a AppBarTheme
-      centerTitle: false,
-    ),
-    textTheme: TextTheme(
-      titleLarge: GoogleFonts.montserratAlternates(),
-      titleMedium: GoogleFonts.montserratAlternates(fontSize: 35),
-      bodyLarge: GoogleFonts.montserratAlternates(fontSize: 19),
-      bodyMedium: GoogleFonts.russoOne(fontSize: 16),
-    )
-  );
+  appBarTheme: const AppBarTheme(
+    centerTitle: false,
+  ),
+
+textTheme: TextTheme(
+  titleLarge: GoogleFonts.montserratAlternates(),
+  titleMedium: GoogleFonts.montserratAlternates(fontSize: 35),
+  bodyLarge: GoogleFonts.montserratAlternates(fontSize: 20),
+  bodyMedium: GoogleFonts.russoOne(fontSize: 16),
+)
+
+);
+
 }

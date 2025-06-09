@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/config/config.dart';
-import 'package:flutter_application_1/config/entities/video_post.dart';
-import 'package:flutter_application_1/presentation/widgets/widgets.dart';
+import 'package:master_ifab/config/config.dart';
+import 'package:master_ifab/presentation/widgets/widgets.dart';
 
 class VideoScrollableView extends StatelessWidget {
-  final List<VideoPost> videos;
+
+final List<VideoPost> videos;
 
   const VideoScrollableView({
     super.key,
-    required this.videos,
-  });
+    required this.videos
+    });
 
   @override
   Widget build(BuildContext context) {
@@ -19,20 +19,21 @@ class VideoScrollableView extends StatelessWidget {
       itemCount: videos.length,
       itemBuilder: (context, index) {
         final VideoPost videoPost = videos[index];
-
-        return Stack(
+        return Stack( 
           children: [
+
             SizedBox.expand(
-              child: FullScreenPlayer(
+              child: FullScreenPlayer( 
                 descriptio: videoPost.descriptio,
                 videoUrl: videoPost.videoUrl,
-              ),
+               )
             ),
+            
             Positioned(
               bottom: 40,
               right: 20,
-              child: VideoButtons(video: videoPost),
-            ),
+              child: VideoButtons(video: videoPost),)
+            
           ],
         );
       },
