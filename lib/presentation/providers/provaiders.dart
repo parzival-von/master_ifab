@@ -11,3 +11,4 @@ export './locus_provider.dart';
 export './locus_vigilia_provider.dart';
 export './pokemon_index_providers.dart';
 export './sensores/pokemon_provider.dart';
+export './calceus_provider.dart';

@@ -11,7 +11,7 @@ class PokemonMapper {
       altitudo: pokeApiPokemon.height,
       pondus: pokeApiPokemon.weight,
       facultates: pokeApiPokemon.abilities.map((facultas) => facultas.ability.name).toList(),
-      faciemImaginem: pokeApiPokemon.sprites.other?.home.frontDefault
+      faciemImaginem: pokeApiPokemon.sprites.other.home.frontDefault
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:master_ifab/presentation/providers/sensores/gyroscope_sphera_dart.dart';
 import 'package:master_ifab/presentation/screens/screens.dart';
@@ -59,6 +58,19 @@ final appRouter = GoRouter(
       },)
     ]
     ),
+
+
+     GoRoute( 
+    path: '/shoes',
+    builder: (context, state) => const CalceusScreen(),
+    ),
+
+
+ GoRoute( 
+    path: '/shoes-desc',
+    builder: (context, state) => const CalceusDescScreen(),
+    ),
+
 
   ]
   );
